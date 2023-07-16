@@ -1,10 +1,6 @@
-import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
-import reactLogo from '@/assets/react.svg'
-
-import './App.css'
-import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
-
+import './App.scss'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from '@/pages/home'
 import DetailPage from '@/pages/detail'
 
@@ -17,13 +13,16 @@ function App() {
       ),
     },
     {
-      path: "detail",
+      path: "detail/:name",
       element: <DetailPage />,
     },
   ]);
-  return (
 
-    <RouterProvider router={router} />
+
+  return (
+    <div className="bg-[url('/final front-end project resources/list_bg.jpg') min-h-[100vh]]">
+      <RouterProvider router={router} />
+    </div>
   )
 }
 

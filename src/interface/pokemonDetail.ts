@@ -1,5 +1,6 @@
 
-export interface IPokemonDetailItem { //first type
+//This was all copied
+export interface IPokemonDetailResponse { //first type
     abilities: Ability[]
     base_experience: number
     forms: Form[]
@@ -18,6 +19,8 @@ export interface IPokemonDetailItem { //first type
     stats: Stat[]
     types: Type[]
     weight: number
+    //new/custom key
+    image?: string
 }
 
 export interface Ability {
