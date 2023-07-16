@@ -1,7 +1,7 @@
 //for pokemonList.ts/service
 export interface IPokemonListItem { //smaller scale // or result
     name: string
-    ul: string
+    url: string
 }
 export interface IPokemonListResponse { //larger scale
     count: number

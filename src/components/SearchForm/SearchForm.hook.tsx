@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form' //import use form
 //fetch list first
 import { usePokemonListStore } from '@/store/pokemonList'
 import { IPokemonDetailResponse } from '@/interface/pokemonDetail';
+import { generationList } from '@/util/optionList';
 
 const useSearchForm = () => {
     const {
@@ -12,18 +13,26 @@ const useSearchForm = () => {
         // handleSubmit,
         watch,
     } = useForm();
+    const generation = watch('generation')
+    const sort = watch('sort')
+    const types = watch('types')
     const keyword = watch('keyword')
-    const { setFetchPokemonList, setPokemonList } = usePokemonListStore()
+    const { setFetchPokemonList, setPokemonList, fetchPokemon } = usePokemonListStore()
 
-    const callData = async () => {
-        const responseList = await pokemonListService.getPokemonList()
-        //pokeList is the array for handling data
-        const pokeList: IPokemonDetailResponse[] = []
+    //call data
+    const callData = async (filter: {
+        name: string;
+        limit: number;
+        offset: number;
+    }) => {
         setFetchPokemonList({
             data: [],
             loading: true,
             error: null
         })
+        const responseList = await pokemonListService.getPokemonList(filter.limit, filter.offset)
+        //pokeList is the array for handling data
+        const pokeList: IPokemonDetailResponse[] = []
         // console.log('data', data)
         if (responseList.status === 200) {  //API RESPONSE CODE STATUS
             //list fetched
@@ -33,21 +42,19 @@ const useSearchForm = () => {
                 const response = await pokemonDetailService.getPokemonDetail(pokemon.name)
                 const pokeData = response.data
                 if (pokeData) {
-                    pokeList.push({ ...pokeData, image: pokeData?.sprites.other.dream_world.front_default || pokeData?.sprites.other['official-artwork'].front_default })
+                    pokeList.push({ ...pokeData, image: pokeData.sprites.other.dream_world.front_default || pokeData.sprites.other['official-artwork'].front_default })
                 }
             }
             // image: pokeData?.sprites.other.dream_world.front_default || pokeData?.sprites.other['official-artwork']/
-            console.log(pokeList, 'datatype', typeof pokeList)
+            console.log(pokeList, 'data type', typeof pokeList)
+            //real data
             setFetchPokemonList({
                 data: pokeList,
                 loading: false,
                 error: null,
             })
-            setPokemonList({
-                data: pokeList,
-                loading: false,
-                error: null,
-            })
+            //mock data 
+            console.log('setpokeList', pokeList)
         } else {
             setFetchPokemonList({
                 data: [],
@@ -56,16 +63,41 @@ const useSearchForm = () => {
             })
         }
     }
+    /*    setPokemonList({
+                data: pokeList,
+                loading: false,
+                error: null,
+            }) */
+
+
     useEffect(() => {
-        callData()
-        console.log("watch", keyword)
+        // const data = pokeList.filter((item) => item.name.toLowerCase().includes(keyword?.toLowerCase()))
+        // console.log('data from keyword', data)
+        // setFetchPokemonList({
+        //     data: data,
+        //     loading: false,
+        //     error: null
+        // })
+        callData(keyword)
+        console.log("keyword", keyword)
         // console.log(callData)
     }, [keyword])
+
+    useEffect(() => {
+        console.log(generation)
+        if (generation !== undefined) {
+            //recieve index
+            callData(generationList[generation])
+        }
+    }, [generation])
 
 
 
     //this
     return {
+        fieldGeneration: register('generation'),
+        fieldTypes: register('types'),
+        fieldSort: register('sort'),
         fieldKeyword: register('keyword'),
     } //bind with searchForm.tsx
 }

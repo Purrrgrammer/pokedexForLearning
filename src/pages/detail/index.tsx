@@ -1,4 +1,3 @@
-import PokemonCard from '@/pokemoncard/PokemonCard';
 import { pokemonDetailService } from '@/services/pokemonDetail';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
