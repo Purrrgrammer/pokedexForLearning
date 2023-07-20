@@ -1,6 +1,7 @@
 
 //This was all copied
-export interface IPokemonDetailResponse { //first type
+
+export interface IPokemonDetailResponse { //oringin type
     abilities: Ability[]
     base_experience: number
     forms: Form[]
@@ -19,7 +20,7 @@ export interface IPokemonDetailResponse { //first type
     stats: Stat[]
     types: Type[]
     weight: number
-    //new/custom key
+    //newly added for better search
     image?: string
 }
 

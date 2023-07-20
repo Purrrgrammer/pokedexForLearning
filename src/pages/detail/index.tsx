@@ -95,7 +95,6 @@ const DetailPage = () => {
                                     })}
                                 </div>
                             </div>
-
                             {/* Stats */}
                             <div>
                                 <h5 className='font-bold'>Stats</h5>
@@ -112,9 +111,6 @@ const DetailPage = () => {
                                     })}
                                 </div>
                             </div>
-
-
-
                         </div>
 
                     </div>

@@ -1,14 +1,10 @@
 import axios from "axios"
 import { POKEMON_BASE_URL } from '@/util/constant'
-import { IPokemonDetailResponse } from '@/interface/pokemonDetail'
-import { handleResponse, IResponse } from '@/util/handleResponse'
+import { handleResponse } from '@/util/handleResponse'
+import { IGetPokemonDetailResponse } from '@/interface/index.ts'
 
 //Promise<IPokemonResponse> // will have previous data before data
 //so 
-export interface IGetPokemonDetailResponse extends IResponse {
-    status: number | undefined,
-    data?: IPokemonDetailResponse //pull the data from here
-}
 //type
 export const pokemonDetailService = {
     //this is returned as a promise

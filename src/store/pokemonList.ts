@@ -11,14 +11,14 @@ const initialStore = { //first set initial value
         loading: false,
         error: null
     },
-    fetchPokemon: { //raw data
+    fetchPokemon: { //raw data (fetched data)
         data: [],
         loading: false,
         error: null
     }
 }
 type pokemonType = {
-    data: IPokemonDetailResponse[] //array of fetched data //OLD => IGetPokemonDetailResponse
+    data: IPokemonDetailResponse[] | undefined //array of fetched data //OLD => IGetPokemonDetailResponse
     loading: boolean
     error: null | any // dont know what will passed
 }
@@ -27,15 +27,15 @@ type pokemonType = {
 type UsePokemonListStoreType = {
     pokemon: pokemonType,
     fetchPokemon: pokemonType,
-    setFetchPokemonList: (value: pokemonType) => void, //raw data
-    setPokemonList: (value: pokemonType) => void, //show data
+    setPokemonList: (value: pokemonType | undefined) => void, //show data
+    setFetchPokemonList: (value: pokemonType | undefined) => void, //raw data
     clearPokemon: () => void,
 }
 
 export const usePokemonListStore = create<UsePokemonListStoreType>((set) => ({
     ...initialStore,
-    setFetchPokemonList: (value: pokemonType) => { set({ fetchPokemon: value }) },
-    setPokemonList: (value: pokemonType) => { set({ pokemon: value }) }, //require value of pokemonType > set new pokemon with value
+    setPokemonList: (value: pokemonType | undefined) => set({ pokemon: value }), //require value of pokemonType > set new pokemon with value
+    setFetchPokemonList: (value: pokemonType | undefined) => set({ fetchPokemon: value }),
     clearPokemon: () => set({ ...initialStore })
 }))
 

@@ -30,7 +30,9 @@ export function pokemonCard({ image, name, id, types }: PokemonCardProps) {
             </div>
             <div className='flex gap-2 justify-end' >
                 {types.map((item) => {
-                    return <span className="">
+                    return <span
+                        key={`type-${item.type.name}`}
+                        className={`badge-type-${item.type.name} px-[14px] capitalize py-1 rounded-[16px]`}>
                         {item.type.name}
                     </span>
                 })}
