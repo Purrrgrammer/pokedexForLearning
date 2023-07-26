@@ -68,4 +68,4 @@ export const typesList = [
     'water',
 ]
 
-export const sortList = ['id', 'name']
+export const sortList: ("id" | "name")[] = ['id', 'name']

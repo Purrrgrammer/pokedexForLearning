@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 //fetch list first
 import { usePokemonListStore } from '@/store/pokemonList'
 import { IPokemonDetailResponse } from '@/interface/pokemonDetail';
-import { generationList, typesList } from '@/util/optionList';
+import { generationList, sortList, typesList } from '@/util/optionList';
 
 const useSearchForm = () => {
     const {
@@ -74,14 +74,14 @@ const useSearchForm = () => {
     const filterPokemon = (
         pokeList: IPokemonDetailResponse[],
         keyword: string,
-        type: string,
+        type: string = 'all types',
         sort: 'id' | 'name') => {
-        /*
+
         console.log("pokeList", pokeList)
         console.log(" keyword", keyword)
         console.log("type", type)
         console.log("sort", sort)
-        */
+
         const filteringKeyword = pokeList.filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()))
         // console.log("filteringKeyword", filteringKeyword)
         const filteringType = type !== 'all types' ? filteringKeyword.filter((item) => item.types.find((item) => item.type.name.toLowerCase().includes(type.toLowerCase()))) : filteringKeyword;
@@ -101,12 +101,10 @@ const useSearchForm = () => {
                 return data.sort((a, b) => a.id - b.id)
         }
     }
-
-
     useEffect(() => {
         // console.log('fetchPokemon.data', fetchPokemon.data);
         if (fetchPokemon.data) {
-            const data = filterPokemon(fetchPokemon.data, keyword, typesList[types], sort)
+            const data = filterPokemon(fetchPokemon.data, keyword, typesList[types], sortList[sort])
             // console.log('data from filterPokemon', data)
             setPokemonList({
                 data: data, // !!!!!!!!!!!!why data might be undefined!!!!!!!!!!!!!!

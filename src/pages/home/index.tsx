@@ -28,17 +28,18 @@ const HomePage = () => {
                     </div>
                 )
             }
-            {!fetchPokemon.loading && <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3  gap-[20px] mt-[40px]'>
-                {/* mapping raw pokemon data */}
-                {pokemon.data?.map((item) => {
-                    return <React.Fragment key={`pokemon-${item.name}`}>
-                        <PokemonCard image={item.sprites.other.dream_world.front_default || ''}
-                            name={item.name}
-                            id={item.id}
-                            types={item.types} />
-                    </React.Fragment>
-                })}
-            </div>}
+            {!fetchPokemon.loading &&
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3  gap-[20px] mt-[40px]'>
+                    {/* mapping raw pokemon data */}
+                    {pokemon.data?.map((item) => {
+                        return <React.Fragment key={`pokemon-${item.name}`}>
+                            <PokemonCard image={item.sprites.other.dream_world.front_default || ''}
+                                name={item.name}
+                                id={item.id}
+                                types={item.types} />
+                        </React.Fragment>
+                    })}
+                </div>}
         </div >
 
     )

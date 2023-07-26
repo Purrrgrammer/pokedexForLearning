@@ -76,7 +76,6 @@ const DetailPage = () => {
                                     </div>
                                 </div>
                             </div>
-
                             {/* types */}
                             <div className='flex gap-2 justify-start sm:justify-end mt-[16px]' >
                                 {pokemon.data.types.map((item) => {
@@ -85,7 +84,6 @@ const DetailPage = () => {
                                     </span>
                                 })}
                             </div>
-
                             {/* Abilities */}
                             <div>
                                 <h5 className='font-bold'>Abilities</h5>
@@ -112,9 +110,7 @@ const DetailPage = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 )}
             </div>
         </div >

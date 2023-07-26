@@ -17,8 +17,6 @@ function App() {
       element: <DetailPage />,
     },
   ]);
-
-
   return (
     <div className="bg-[url('/final front-end project resources/list_bg.jpg') min-h-[100vh]]">
       <RouterProvider router={router} />

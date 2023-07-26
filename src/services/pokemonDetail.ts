@@ -3,7 +3,7 @@ import { POKEMON_BASE_URL } from '@/util/constant'
 import { handleResponse } from '@/util/handleResponse'
 import { IGetPokemonDetailResponse } from '@/interface/index.ts'
 
-//Promise<IPokemonResponse> // will have previous data before data
+//Promise<IPokemonResponse> // will have previous data before real data coming
 //so 
 //type
 export const pokemonDetailService = {
