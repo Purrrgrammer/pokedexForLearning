@@ -5,148 +5,109 @@
 /* 23:00 */
 .badge-type {
   &-grass {
-    background-color: #a8ff98;
+    background-image: linear-gradient(to right, transparent, #a8ff98, transparent);
   }
 
   &-poison {
-    background-color: #d6a2e4;
+    background-image: linear-gradient(to right, transparent, #d6a2e4, transparent);
+    background-image: #d6a2e4;
   }
 
   &-normal {
-    background-color: #dcdcdc;
+    background-image: linear-gradient(to right, transparent, #dcdcdc, transparent);
+    background-image: #dcdcdc;
   }
 
   &-fire {
-    background-color: #ffb971;
+    background-image: linear-gradient(to right, transparent, #ffb971, transparent);
+    background-image: #ffb971;
   }
 
   &-water {
-    background-color: #8cc4e2;
+    background-image: linear-gradient(to right, transparent, #8cc4e2, transparent);
+    background-image: #8cc4e2;
   }
 
   &-electric {
-    background-color: #ffe662;
+    background-image: linear-gradient(to right, transparent, #ffe662, transparent);
+    background-image: #ffe662;
   }
 
   &-ice {
-    background-color: #8cf5e4;
+    background-image: linear-gradient(to right, transparent, #8cf5e4, transparent);
+
+    background-image: #8cf5e4;
   }
 
   &-electric {
-    background-color: #ffe662;
+    background-image: linear-gradient(to right, transparent, #ffe662, transparent);
+
+    background-image: #ffe662;
   }
 
   &-fighting {
-    background-color: #da7589;
+    background-image: linear-gradient(to right, transparent, #da7589, transparent);
+
+    background-image: #da7589;
   }
 
   &-ground {
-    background-color: #e69a74;
+    background-image: linear-gradient(to right, transparent, #e69a74, transparent);
+
+    background-image: #e69a74;
   }
 
   &-flying {
-    background-color: #bbc9e4;
+    background-image: linear-gradient(to right, transparent, #bbc9e4, transparent);
+
+    background-image: #bbc9e4;
   }
 
   &-psychic {
-    background-color: #ffa5da;
+    background-image: linear-gradient(to right, transparent, #ffa5da, transparent);
+
+    background-image: #ffa5da;
   }
 
   &-bug {
-    background-color: #bae05f;
+    background-image: linear-gradient(to right, transparent, #bae05f, transparent);
+
+    background-image: #bae05f;
   }
 
   &-rock {
-    background-color: #c9bb8a;
+    background-image: linear-gradient(to right, transparent, #c9bb8a, transparent);
+
+    background-image: #c9bb8a;
   }
 
   &-ghost {
-    background-color: #8291e0;
+    background-image: linear-gradient(to right, transparent, #8291e0, transparent);
+
+    background-image: #8291e0;
   }
 
   &-dark {
-    background-color: #8e8c94;
+    background-image: linear-gradient(to right, transparent, #8e8c94, transparent);
+
+    background-image: #8e8c94;
   }
 
   &-dragon {
-    background-color: #88a2e8;
+    background-image: linear-gradient(to right, transparent, #88a2e8, transparent);
+
+    background-image: #88a2e8;
   }
 
   &-steel {
-    background-color: #9fb8b9;
+    background-image: linear-gradient(to right, transparent, #9fb8b9, transparent);
+
+    background-image: #9fb8b9;
   }
 
   &-fairy {
-    background-color: #fdb9e9;
+    background-image: linear-gradient(to right, transparent, #fdb9e9, transparent);
+
+    background-image: #fdb9e9;
   }
 }
-
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */

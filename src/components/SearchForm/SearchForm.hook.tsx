@@ -51,7 +51,6 @@ const useSearchForm = () => {
                 loading: false,
                 error: null,
             })
-
             const data = filterPokemon(pokeList, keyword, types, sort)
             console.log('data from filter', data)
 

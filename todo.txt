@@ -1,1 +1,15 @@
 InfiniteScroll
+
+
+ui for stat bars
+base_stat reducer
+
+nav bar 
+> includes ...
+1.pokemon of the day
+
+2.my github link
+
+3.info
+
+evolution features

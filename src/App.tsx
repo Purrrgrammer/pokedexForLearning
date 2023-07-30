@@ -3,6 +3,7 @@ import './App.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from '@/pages/home'
 import DetailPage from '@/pages/detail'
+import Pokemonoftheday from './pages/pokemonoftheday';
 
 function App() {
   const router = createBrowserRouter([
@@ -16,9 +17,13 @@ function App() {
       path: "detail/:name",
       element: <DetailPage />,
     },
+    {
+      path: "pokemonoftheday/",
+      element: <Pokemonoftheday />,
+    },
   ]);
   return (
-    <div className="bg-[url('/final front-end project resources/list_bg.jpg') min-h-[100vh]]">
+    <div className="bg-white-200 min-h-[100vh]">
       <RouterProvider router={router} />
     </div>
   )

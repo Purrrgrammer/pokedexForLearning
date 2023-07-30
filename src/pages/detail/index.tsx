@@ -43,88 +43,92 @@ const DetailPage = () => {
 
     return (
 
-        <div className='w-[90%] m-[auto] max-w-[1100px]'>
-            <div className='w-[90%] m-[auto] max-w-[600px]'>
-                {/* This is card */}
-                <Link to={'/'}>
-                    back
+        <div className='w-[100%] m-[auto] max-w-[1500px] '>
+            <div className='w-[100%] m-[auto] max-w-[1200px]'>
+                {/* logo */}
+                <Link to='/'>
+                    <div className='flex justify-center'>
+                        <img src="/src/final front-end project resources/logo.webp" className='max-h-[80px] mt-[20px]' />
+                    </div>
                 </Link>
-                {pokemon.data && (
-                    <div className="h-[100%] w-[100%] max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-[auto]">
+                {/* This is card */}
+                {/* NEWGRID */}
+                <div className="pt-[100px]">
+                    {pokemon.data && (
                         <div>
-                            <img className=' h-[400px] p-[40px] w-full' src={pokemon.data.image} alt="" />
-                            {/* max-h-[218px] */}
-                        </div>
-                        <div className='flex justify-between '>
-                            <h5 className="capitalize mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
-                            <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">#{pokemon.data.id}</h5>
-                        </div>
-
-                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-x-[20px] gap-y-[30px]'>
-                            {/* H/W */}
+                            <h1 className="capitalize mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{name?.toUpperCase()}</h1>
                             <div>
-                                <div>
-                                    <div className='flex gap-x-[10px]'>
-                                        <div>Height:</div>
-                                        <div>{pokemon.data.height} m.</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className='flex gap-x-[10px]'>
-                                        <div>Weight:</div>
-                                        <div>{pokemon.data.weight} kg.</div>
-                                    </div>
-                                </div>
+                                {
+                                    (pokemon.data.id) < 9 ?
+                                        <h1 className='mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white'>#00{pokemon.data.id}</h1> :
+                                        (pokemon.data.id) > 9 && (pokemon.data.id) < 99 ?
+                                            <h1 className='mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white'>#0{pokemon.data.id}</h1> :
+                                            <h1 className='mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white'>#{pokemon.data.id}</h1>
+                                }
                             </div>
-                            {/* types */}
-                            <div className='flex gap-2 justify-start sm:justify-end mt-[16px]' >
-                                {pokemon.data.types.map((item) => {
-                                    return <span className={`badge-type-${item.type.name} px-[14px] capitalize py-1 rounded-[16px]`}>
-                                        {item.type.name}
-                                    </span>
-                                })}
-                            </div>
+                        </div>
+                    )}
+                    {pokemon.data && (
+                        < div className="grid grid-cols-3 gap-5 ">
                             {/* Abilities */}
-                            <div>
+                            <div className="...">
                                 <h5 className='font-bold'>Abilities</h5>
                                 <div className='grid grid-cols-2 sm:grid-cols-1 '>
                                     {pokemon.data.abilities.map((item, index) => {
-                                        return <div className='capitalize '>{`${index + 1}. ${item.ability.name}`}</div>
+                                        return <div className='capitalize' key={pokemon.data?.id}>{`${index + 1}. ${item.ability.name}`}</div>
                                     })}
+                                </div>
+                                <div >
+                                    <p>
+                                        height {(pokemon.data.height / 10).toFixed(2)} cm
+                                    </p>
+                                    <p>
+                                        weight {(pokemon.data.weight / 10).toFixed(2)} kg
+                                    </p>
+                                </div>
+                                <div>
+                                    {pokemon.data.types.map(type => { return <p key={`${pokemon.data?.id}`}>{type.type.name}</p> })}
+                                </div>
+
+                            </div>
+                            {/* POKEMON */}
+                            <div className="...">
+                                <div>
+                                    <img className=' h-[400px] p-[40px] w-full hover:scale-110 transform transition duration-500' src={pokemon.data.image} alt="" />
                                 </div>
                             </div>
                             {/* Stats */}
-                            <div>
+                            <div className="...">
                                 <h5 className='font-bold'>Stats</h5>
-                                <div className='grid grid-cols-1 gap-[10px]'>
+                                <div className='grid grid-cols-1 gap-1'>
                                     {pokemon.data.stats.map((item) => {
-                                        return <div className='flex justify-between'>
-                                            <div className='text-blue-400 font-semibold capitalize'>
+                                        return <div className='grid grid-cols-2 '>
+                                            <div className=' text-blue-400 font-semibold capitalize mx-1 text-right'>
                                                 {item.stat.name}
                                             </div>
-                                            <div>
+                                            <div className='mx-1 text-left'>
                                                 {item.base_stat}
                                             </div>
+
                                         </div>
                                     })}
+                                    <div>total
+                                        {/* { .reduce((pre, cur) => (pre + cur), 0)} */}
+                                        {pokemon.data.stats.map(data => data.base_stat)}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                )}
+                        </div >
+
+                    )}
+                </div>
+
+                <Link to={'/'}>
+                    <b className='text-bold'>BACK</b>
+                </Link>
             </div>
         </div >
     )
 }
 
 export default DetailPage
-
-{/* {pokemon.data && (
-                        <PokemonCard
-                            image={pokemon.data.sprites.other.dream_world.front_default || ''}
-                            name={pokemon.data.name}
-                            id={pokemon.data.id}
-                            types={pokemon.data.types}
-                        />
-                    )
-                    } */}
