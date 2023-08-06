@@ -13,3 +13,9 @@ nav bar
 3.info
 
 evolution features
+
+
+to ask 
+how to get max
+set axios response to data 
+some error

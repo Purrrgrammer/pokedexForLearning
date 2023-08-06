@@ -44,10 +44,10 @@ const useSearchForm = () => {
                 }
             }
             // image: pokeData?.sprites.other.dream_world.front_default || pokeData?.sprites.other['official-artwork']/
-            // console.log('pokelist', pokeList, 'data type', typeof pokeList)
+            console.log('pokelist', pokeList, 'data type', typeof pokeList)
             //real data
             setFetchPokemonList({
-                data: pokeList,
+                data: pokeList || undefined,
                 loading: false,
                 error: null,
             })
@@ -75,18 +75,15 @@ const useSearchForm = () => {
         keyword: string,
         type: string = 'all types',
         sort: 'id' | 'name') => {
-
         console.log("pokeList", pokeList)
         console.log(" keyword", keyword)
         console.log("type", type)
         console.log("sort", sort)
-
-        const filteringKeyword = pokeList.filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()))
-        // console.log("filteringKeyword", filteringKeyword)
+        const filteringKeyword = pokeList.filter(item => item.name.toLowerCase().includes(keyword.toLowerCase())) // ERROR can be undefinded so the to
+        console.log("filteringKeyword", filteringKeyword)
         const filteringType = type !== 'all types' ? filteringKeyword.filter((item) => item.types.find((item) => item.type.name.toLowerCase().includes(type.toLowerCase()))) : filteringKeyword;
-        // console.log('filteringType', filteringType)
-
-        //sort by....
+        console.log('filteringType', filteringType)
+        //sort by...
         console.log('sortBy', sortBy(filteringType, sort))
         return sortBy(filteringType, sort)
     }

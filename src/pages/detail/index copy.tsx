@@ -44,9 +44,6 @@ const DetailPage = () => {
     return (
 
         <div className='w-[90%] m-[auto] max-w-[1100px]'>
-
-
-
             <div className='w-[90%] m-[auto] max-w-[600px]'>
                 {/* logo */}
                 <Link to='/'>
@@ -126,13 +123,20 @@ const DetailPage = () => {
                                         })}
                                     </div></div>
 
+                                <div className=" w-full bg-black" >
+                                    <div className=" py-[1opx] text-left w-90 bg-emerald-600">asdsa</div>
+                                </div>
+
                                 <div className="...">02</div>
 
 
                                 <div className="..."> <h5 className='font-bold'>Stats</h5>
                                     <div className='grid grid-cols-1 gap-[10px]'>
+                                        {/* stats */}
+
                                         {pokemon.data.stats.map((item) => {
                                             return <div className='flex justify-between'>
+
                                                 <div className='text-blue-400 font-semibold capitalize'>
                                                     {item.stat.name}
                                                 </div>
@@ -149,7 +153,7 @@ const DetailPage = () => {
                     </div>
                 )}
                 <Link to={'/'}>
-                    <b className='text-bold'>BACK</b>
+                    <b className='text-bold'>BACsdfsdK</b>
                 </Link>
             </div>
         </div >

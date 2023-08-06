@@ -9,6 +9,7 @@ type pokemonType = {
     error: null | any
 }
 
+
 const DetailPage = () => {
     const { name } = useParams()
     const [pokemon, setPokemon] = useState<pokemonType>({
@@ -42,7 +43,6 @@ const DetailPage = () => {
     }, [name])
 
     return (
-
         <div className='w-[100%] m-[auto] max-w-[1500px] '>
             <div className='w-[100%] m-[auto] max-w-[1200px]'>
                 {/* logo */}
@@ -53,10 +53,11 @@ const DetailPage = () => {
                 </Link>
                 {/* This is card */}
                 {/* NEWGRID */}
-                <div className="pt-[100px]">
+                <div className="pt-[50px]">
                     {pokemon.data && (
                         <div>
                             <h1 className="capitalize mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{name?.toUpperCase()}</h1>
+                            {/* type name */}
                             <div>
                                 {
                                     (pokemon.data.id) < 9 ?
@@ -66,30 +67,32 @@ const DetailPage = () => {
                                             <h1 className='mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white'>#{pokemon.data.id}</h1>
                                 }
                             </div>
+                            <div>
+                                {pokemon.data.types.map((type, index) => { return <p className={`badge-type-${type.type.name} px-[14px] capitalize py-1 w-full text-white font-semibold`} key={`typo-${index}`}>{type.type.name}</p> })}
+                            </div>
                         </div>
                     )}
                     {pokemon.data && (
-                        < div className="grid grid-cols-3 gap-5 ">
+                        < div className="grid grid-cols-3 gap-5 items-center">
                             {/* Abilities */}
-                            <div className="...">
+                            <div className="... ">
                                 <h5 className='font-bold'>Abilities</h5>
                                 <div className='grid grid-cols-2 sm:grid-cols-1 '>
                                     {pokemon.data.abilities.map((item, index) => {
-                                        return <div className='capitalize' key={pokemon.data?.id}>{`${index + 1}. ${item.ability.name}`}</div>
+                                        return <div className='capitalize' key={index}>{`${index + 1}. ${item.ability.name}`}</div>
                                     })}
                                 </div>
                                 <div >
                                     <p>
-                                        height {(pokemon.data.height / 10).toFixed(2)} cm
+                                        Height {(pokemon.data.height / 10).toFixed(2)} cm
                                     </p>
                                     <p>
-                                        weight {(pokemon.data.weight / 10).toFixed(2)} kg
+                                        Weight {(pokemon.data.weight / 10).toFixed(2)} kg
                                     </p>
                                 </div>
-                                <div>
+                                {/* <div>
                                     {pokemon.data.types.map(type => { return <p key={`${pokemon.data?.id}`}>{type.type.name}</p> })}
-                                </div>
-
+                                </div> */}
                             </div>
                             {/* POKEMON */}
                             <div className="...">
@@ -102,27 +105,31 @@ const DetailPage = () => {
                                 <h5 className='font-bold'>Stats</h5>
                                 <div className='grid grid-cols-1 gap-1'>
                                     {pokemon.data.stats.map((item) => {
-                                        return <div className='grid grid-cols-2 '>
-                                            <div className=' text-blue-400 font-semibold capitalize mx-1 text-right'>
+                                        return <div className='grid grid-cols-2 ' key={`stat-name:${item.stat.name}`}>
+                                            <div className=' text-blue-400 font-semibold capitalize mx-3 text-right' >
                                                 {item.stat.name}
                                             </div>
-                                            <div className='mx-1 text-left'>
-                                                {item.base_stat}
+                                            <div className="container w-[60%] bg-black justify-self-left">
+                                                <div className="stat bg-blue-400 text-left text-white pl-1 " style={{ width: `${(item.base_stat / 180) * 100}%` }}>
+                                                    {item.base_stat}
+                                                </div>
                                             </div>
-
                                         </div>
                                     })}
-                                    <div>total
-                                        {/* { .reduce((pre, cur) => (pre + cur), 0)} */}
-                                        {pokemon.data.stats.map(data => data.base_stat)}
+                                    <b>Overall</b>
+                                    <div className="container w-[80%] bg-black justify-self-center">
+                                        <div className="stat bg-blue-400 text-middle text-white" style={{ width: `${(pokemon.data.stats.reduce((pre, cur) => pre + cur.base_stat, 0) / (180 * 6)) * 100}%` }} >
+                                            {`${(pokemon.data.stats.reduce((pre, cur) => pre + cur.base_stat, 0) / (180 * 6) * 100).toFixed(2)} %`}
+                                            {/* pre act as initial value */}
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div >
 
                     )}
                 </div>
-
                 <Link to={'/'}>
                     <b className='text-bold'>BACK</b>
                 </Link>
