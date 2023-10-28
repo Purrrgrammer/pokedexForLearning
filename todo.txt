@@ -1,12 +1,21 @@
 InfiniteScroll
 
+TODOS
 
-ui for stat bars
-base_stat reducer
+
+ERROR
+on incoming promise in pokemon of the day
+
+pokemon of the day ui
+countdown pokemon ui
+
+
+page migration
 
 nav bar 
 > includes ...
-1.pokemon of the day
+drop down menu is not working
+add link to my git hub
 
 2.my github link
 
@@ -14,8 +23,13 @@ nav bar
 
 evolution features
 
-
 to ask 
 how to get max
 set axios response to data 
 some error
+
+
+CHECKED
+1.pokemon of the day
+ui for stat bars
+base_stat reducer 

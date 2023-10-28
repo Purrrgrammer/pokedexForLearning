@@ -11,7 +11,7 @@ type pokemonType = {
 }
 
 export default function Pokemonoftheday() {
-    const [timer, setTimer] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+    const [timer, setTimer] = useState({ hours: 0, minutes: 0, seconds: 0 })
     let randomnumber = Math.floor(Math.random() * 100 + 1)
     const [pokemon, setPokemon] = useState<string>('')
     const [pokemonData, setPokemonData] = useState<pokemonType>({ data: undefined, loading: true, error: null })
@@ -24,13 +24,13 @@ export default function Pokemonoftheday() {
         const findmax = await axios.get(`${POKEMON_BASE_URL}/pokemon/`)
         console.log("result.data", result)
         try {
+            if (result.status = 200) {
+                setPokemonData({ data: { ...result.data, image: result.data?.sprites.other.dream_world.front_default || result.data?.sprites.other['official-artwork'].front_default }, loading: false, error: null })
+            }
             console.log('findmax', findmax.data.count)
             setPokemon(result.data.species.name)
-            if (result.status = 200) {
-                // setPokemonData({ data: { ...result.data, image: result.data?.sprites.other.dream_world.front_default || result.data?.sprites.other['official-artwork'].front_default }, loading: false, error: null })
-            }
+            console.log("pokemon", pokemon)
             //data.length to ask
-            console.log(result);
         } catch (error) {
             console.log(error)
         }
@@ -41,19 +41,19 @@ export default function Pokemonoftheday() {
         tmr.setDate(today.getDate() + 1)
         tmr.setHours(0, 0, 0, 0);
         let timeleft = tmr.getTime() - today.getTime();
-        let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        // let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
         let hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
         if (timeleft < 0) {
             setPokemonNum(randomnumber)
         }
-        return { days, hours, minutes, seconds }
+        return { hours, minutes, seconds }
     }
 
     useEffect(() => {
         callRandom()
-        console.log('pokemonData', pokemonData.data)
+        // console.log('pokemonData', pokemonData.data)
     }, [pokemonNum])
 
     useEffect(() => {
@@ -65,7 +65,7 @@ export default function Pokemonoftheday() {
         return () => { clearInterval(myInterval) }
     }, [timer])
 
-    const { days, hours, minutes, seconds } = timer
+    const { hours, minutes, seconds } = timer
     return (
         <div>
             <Link to='/'>
@@ -77,7 +77,36 @@ export default function Pokemonoftheday() {
             <h1>POKEMON OF THE DAY</h1>
             <div>Today is {new Date().toString()}</div>
             <h1>{pokemon}</h1>
-            <h1>The pokemon will be automatically reset in {days}: {hours}: {minutes} : {seconds} HRS</h1>
+            <div className='countDownSection flex flex-col items-center '>
+                <div>The Pokemon will be automatically reset </div>
+                in
+                <div className='timeContainer flex flex-row self-center m-2'>
+                    <div className='timeSection mx-2 text-5xl'>
+                        <div>
+                            {(hours < 10) ? '0' + hours : hours}
+                        </div>
+                        <div className='text-xs' >
+                            hrs
+                        </div>
+                    </div>
+                    <div className='timeSection mx-2 text-5xl'>
+                        <div>
+                            {(minutes < 10) ? '0' + minutes : minutes}
+                        </div>
+                        <div className='text-xs'>
+                            min
+                        </div>
+                    </div>
+                    <div className='timeSection mx-2 text-5xl'>
+                        <div>
+                            {(seconds < 10) ? '0' + seconds : seconds}
+                        </div>
+                        <div className='text-xs'>
+                            hrs
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <button onClick={() => { setPokemonNum(randomnumber) }}
                 type="button"
@@ -177,3 +206,6 @@ export default function Pokemonoftheday() {
 }
 
 
+//PROBLEM pokemon name can be displayed but the other data cannot
+
+//solution > only set pokemonData retrived from api then display it along only
