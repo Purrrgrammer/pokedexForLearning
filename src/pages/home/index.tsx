@@ -2,7 +2,7 @@ import {} from "@/components/SearchForm";
 import SearchForm from "@/components/SearchForm/SearchForm";
 import PokemonCard from "@/pokemoncard/PokemonCard";
 import { usePokemonListStore } from "@/store/pokemonList";
-import React, { useEffect } from "react";
+import React from "react";
 import ReactLoading from "react-loading";
 import { Link } from "react-router-dom";
 import { RingLoader } from "react-spinners";
