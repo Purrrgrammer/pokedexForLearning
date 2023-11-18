@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { POKEMON_BASE_URL } from "@/util/constant";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { IPokemonDetailResponse } from "@/interface/pokemonDetail";
+import {
+  Ability,
+  IPokemonDetailResponse,
+  Stat,
+  Type,
+} from "@/interface/pokemonDetail";
 
 type pokemonType = {
   data: IPokemonDetailResponse | undefined;
@@ -13,14 +18,14 @@ type pokemonType = {
 export default function Pokemonoftheday() {
   const [timer, setTimer] = useState({ hours: 0, minutes: 0, seconds: 0 });
   let randomnumber = Math.floor(Math.random() * 100 + 1);
-  const [pokemon, setPokemon] = useState<string>("");
-  const [pokemonData, setPokemonData] = useState<pokemonType>({
+  const [pokemon, setPokemon] = useState<any>("");
+  const [_pokemonData, setPokemonData] = useState<pokemonType>({
     data: undefined,
     loading: true,
     error: null,
   });
   const [pokemonNum, setPokemonNum] = useState<number>(randomnumber);
-  const [max, setmax] = useState<number>(1);
+  // const [max, setmax] = useState<number>(1);
 
   const callRandom = async () => {
     //151
@@ -115,7 +120,6 @@ export default function Pokemonoftheday() {
           </div>
         </div>
       </div>
-
       <button
         onClick={() => {
           setPokemonNum(randomnumber);
@@ -135,11 +139,11 @@ export default function Pokemonoftheday() {
             {pokemon.data && (
               <div>
                 <h1 className="capitalize mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {name?.toUpperCase()}
+                  {pokemon.data.name?.toUpperCase()!}
                 </h1>
                 {/* type name */}
                 <div>
-                  {pokemon.data.types.map((type) => {
+                  {pokemon.data.types.map((type: Type) => {
                     return (
                       <p
                         className={`badge-type-${type.type.name} px-[14px] capitalize py-1 w-full text-white font-semibold`}
@@ -173,20 +177,23 @@ export default function Pokemonoftheday() {
                 <div className="...">
                   <h5 className="font-bold">Abilities</h5>
                   <div className="grid grid-cols-2 sm:grid-cols-1 ">
-                    {pokemon.data.abilities.map((item, index: number) => {
-                      return (
-                        <div className="capitalize" key={pokemon.data?.id}>{`${
-                          index + 1
-                        }. ${item.ability.name}`}</div>
-                      );
-                    })}
+                    {pokemon.data.abilities.map(
+                      (item: Ability, index: number) => {
+                        return (
+                          <div
+                            className="capitalize"
+                            key={pokemon.data?.id}
+                          >{`${index + 1}. ${item.ability.name}`}</div>
+                        );
+                      }
+                    )}
                   </div>
                   <div>
                     <p>Height {(pokemon.data.height / 10).toFixed(2)} cm</p>
                     <p>Weight {(pokemon.data.weight / 10).toFixed(2)} kg</p>
                   </div>
                   <div>
-                    {pokemon.data.types.map((type) => {
+                    {pokemon.data.types.map((type: Type) => {
                       return (
                         <p key={`${pokemon.data?.id}`}>{type.type.name}</p>
                       );
@@ -207,7 +214,7 @@ export default function Pokemonoftheday() {
                 <div className="...">
                   <h5 className="font-bold">Stats</h5>
                   <div className="grid grid-cols-1 gap-1">
-                    {pokemon.data.stats.map((item) => {
+                    {pokemon.data.stats.map((item: Stat) => {
                       return (
                         <div className="grid grid-cols-2 ">
                           <div className=" text-blue-400 font-semibold capitalize mx-3 text-right">
@@ -233,7 +240,7 @@ export default function Pokemonoftheday() {
                         style={{
                           width: `${
                             (pokemon.data.stats.reduce(
-                              (pre, cur) => pre + cur.base_stat,
+                              (pre: number, cur: any) => pre + cur.base_stat,
                               0
                             ) /
                               (180 * 6)) *
@@ -243,7 +250,7 @@ export default function Pokemonoftheday() {
                       >
                         {`${(
                           (pokemon.data.stats.reduce(
-                            (pre, cur) => pre + cur.base_stat,
+                            (pre: number, cur: any) => pre + cur.base_stat,
                             0
                           ) /
                             (180 * 6)) *
