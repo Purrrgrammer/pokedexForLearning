@@ -200,7 +200,7 @@ export default function Pokemonoftheday() {
                     })}
                   </div>
                 </div>
-                {/* POKEMON */}
+                {/* POKEMON image*/}
                 <div className="...">
                   <div>
                     <img

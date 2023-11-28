@@ -153,9 +153,10 @@ const useSearchForm = () => {
 
   //this
   return {
-    fieldGeneration: register("generation", {
-      value: 0, //default from zustand
-    }),
+    fieldGeneration: register("generation"),
+    /* {
+      value: 0, //default from zustand === 0
+    } */
     fieldTypes: register("types"),
     fieldSort: register("sort"),
     fieldKeyword: register("keyword"),
