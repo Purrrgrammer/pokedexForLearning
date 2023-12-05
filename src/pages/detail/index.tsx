@@ -3,7 +3,8 @@ import { Link, useParams } from "react-router-dom";
 
 const DetailPage = () => {
   const { name } = useParams();
-  const logo = "../../../public/pokedex resources/logo.webp";
+  const logo =
+    "../../../public/pokedex resources/International_Pokémon_logo.svg.png";
   return (
     <div>
       <Link to="/">

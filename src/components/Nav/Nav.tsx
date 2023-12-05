@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-const logo = "../../../public/pokedex resources/logo.webp";
+const logo =
+  "../../../public/pokedex resources/International_Pokémon_logo.svg.png";
+
 const navpath = [
   { name: "home", path: "/" },
   { name: "about", path: "/" },
