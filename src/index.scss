@@ -2,111 +2,222 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: "Common Pixel", sans-serif;
+  // font-size: 0.9rem;
+}
+body {
+  background: rgba(0, 0, 0, 0.9);
+  background: url("https://wallpapercave.com/wp/wp8695829.png")
+    // background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7c1cfff2-db8d-44cd-8a13-cb2a4162fae6/dd2zouo-047f7b3f-b895-43ac-82a4-abb6ca12c52a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdjMWNmZmYyLWRiOGQtNDRjZC04YTEzLWNiMmE0MTYyZmFlNlwvZGQyem91by0wNDdmN2IzZi1iODk1LTQzYWMtODJhNC1hYmI2Y2ExMmM1MmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.EFI6YQ0acRLpYHzupMAxV_N4KMcpNWT-_3RJ4TV-4eU")
+    // background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5bbf58a6-1e85-4cfe-83fd-02df6f482b45/de8nlib-6bed7b3d-3d7e-4763-bb60-18f5ee0127fd.png/v1/fill/w_1024,h_652,q_80,strp/background_prairie_pokemon_screencapture_by_nemotrex_de8nlib-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjUyIiwicGF0aCI6IlwvZlwvNWJiZjU4YTYtMWU4NS00Y2ZlLTgzZmQtMDJkZjZmNDgyYjQ1XC9kZThubGliLTZiZWQ3YjNkLTNkN2UtNDc2My1iYjYwLTE4ZjVlZTAxMjdmZC5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.ZVgNGi61AOkC068E-wphWmAUW8amj0MiJySqDcMCVh8 ")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /* 23:00 */
 .badge-type {
   &-grass {
-    background-image: linear-gradient(to right, transparent, #a8ff98, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #a8ff98,
+      transparent
+    );
   }
 
   &-poison {
-    background-image: linear-gradient(to right, transparent, #d6a2e4, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #d6a2e4,
+      transparent
+    );
     background-image: #d6a2e4;
   }
 
   &-normal {
-    background-image: linear-gradient(to right, transparent, #dcdcdc, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #dcdcdc,
+      transparent
+    );
     background-image: #dcdcdc;
   }
 
   &-fire {
-    background-image: linear-gradient(to right, transparent, #ffb971, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #ffb971,
+      transparent
+    );
     background-image: #ffb971;
   }
 
   &-water {
-    background-image: linear-gradient(to right, transparent, #8cc4e2, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #8cc4e2,
+      transparent
+    );
     background-image: #8cc4e2;
   }
 
   &-electric {
-    background-image: linear-gradient(to right, transparent, #ffe662, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #ffe662,
+      transparent
+    );
     background-image: #ffe662;
   }
 
   &-ice {
-    background-image: linear-gradient(to right, transparent, #8cf5e4, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #8cf5e4,
+      transparent
+    );
 
     background-image: #8cf5e4;
   }
 
   &-electric {
-    background-image: linear-gradient(to right, transparent, #ffe662, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #ffe662,
+      transparent
+    );
 
     background-image: #ffe662;
   }
 
   &-fighting {
-    background-image: linear-gradient(to right, transparent, #da7589, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #da7589,
+      transparent
+    );
 
     background-image: #da7589;
   }
 
   &-ground {
-    background-image: linear-gradient(to right, transparent, #e69a74, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #e69a74,
+      transparent
+    );
 
     background-image: #e69a74;
   }
 
   &-flying {
-    background-image: linear-gradient(to right, transparent, #bbc9e4, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #bbc9e4,
+      transparent
+    );
 
     background-image: #bbc9e4;
   }
 
   &-psychic {
-    background-image: linear-gradient(to right, transparent, #ffa5da, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #ffa5da,
+      transparent
+    );
 
     background-image: #ffa5da;
   }
 
   &-bug {
-    background-image: linear-gradient(to right, transparent, #bae05f, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #bae05f,
+      transparent
+    );
 
     background-image: #bae05f;
   }
 
   &-rock {
-    background-image: linear-gradient(to right, transparent, #c9bb8a, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #c9bb8a,
+      transparent
+    );
 
     background-image: #c9bb8a;
   }
 
   &-ghost {
-    background-image: linear-gradient(to right, transparent, #8291e0, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #8291e0,
+      transparent
+    );
 
     background-image: #8291e0;
   }
 
   &-dark {
-    background-image: linear-gradient(to right, transparent, #8e8c94, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #8e8c94,
+      transparent
+    );
 
     background-image: #8e8c94;
   }
 
   &-dragon {
-    background-image: linear-gradient(to right, transparent, #88a2e8, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #88a2e8,
+      transparent
+    );
 
     background-image: #88a2e8;
   }
 
   &-steel {
-    background-image: linear-gradient(to right, transparent, #9fb8b9, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #9fb8b9,
+      transparent
+    );
 
     background-image: #9fb8b9;
   }
 
   &-fairy {
-    background-image: linear-gradient(to right, transparent, #fdb9e9, transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #fdb9e9,
+      transparent
+    );
 
     background-image: #fdb9e9;
   }

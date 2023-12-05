@@ -16,7 +16,7 @@ function App() {
       element: <DetailPage />,
     },
     {
-      path: "pokemonoftheday/",
+      path: "pokemonoftheday",
       element: <Pokemonoftheday />,
     },
   ]);

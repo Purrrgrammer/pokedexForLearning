@@ -3,15 +3,12 @@ import { Link, useParams } from "react-router-dom";
 
 const DetailPage = () => {
   const { name } = useParams();
-
+  const logo = "../../../public/pokedex resources/logo.webp";
   return (
     <div>
       <Link to="/">
         <div className="flex justify-center">
-          <img
-            src="/src/final front-end project resources/logo.webp"
-            className="max-h-[80px] mt-[20px]"
-          />
+          <img src={logo} className="max-h-[80px] " />
         </div>
       </Link>
       <Detail name={name} />

@@ -48,10 +48,9 @@ const Detail = ({ name }: propType) => {
   }, [name]);
 
   return (
-    <div className="w-[100%] m-[auto] max-w-[1500px] ">
+    <div className="detail-page w-[100%] m-[auto] max-w-[1500px] ">
+      <div className="detail-page-base"></div>
       <div className="w-[100%] m-[auto] max-w-[1200px]">
-        {/* logo */}
-
         {/* This is card */}
         {/* NEWGRID */}
         <div className="pt-[50px] flex flex-col">

@@ -5,7 +5,7 @@ export function SearchForm() {
     useSearchForm();
 
   return (
-    <form className="grid grid-cols-4 gap-x-[20px]">
+    <form className="grid grid-cols-4 gap-x-[20px] content-center justify-center items-center		">
       <div>
         {/* <label htmlFor="generation" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Generation</label> */}
         <select
