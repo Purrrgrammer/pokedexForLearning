@@ -52,7 +52,7 @@ const DetailPage = () => {
         <Link to="/">
           <div className="flex justify-center">
             <img
-              logo="../../../public/pokedex resources/International_Pokémon_logo.svg.png"
+              src="../../../public/pokedex resources/International_Pokémon_logo.svg.png"
               className="max-h-[80px] "
             />
           </div>
