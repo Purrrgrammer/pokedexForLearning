@@ -2,7 +2,6 @@ InfiniteScroll
 
 TODOS
 
-
 ERROR
 on incoming promise in pokemon of the day
 
@@ -28,7 +27,6 @@ how to get max
 set axios response to data 
 some error
 
-
 CHECKED
 1.pokemon of the day
 ui for stat bars
@@ -38,3 +36,5 @@ responsesiveness
 poke detail
 
 more details
+
+extreme ui update

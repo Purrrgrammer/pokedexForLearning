@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { POKEMON_BASE_URL } from "@/util/constant";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Detail from "@/components/Detail/Detail";
+
 import {
   Ability,
   IPokemonDetailResponse,
@@ -17,7 +19,7 @@ type pokemonType = {
 
 export default function Pokemonoftheday() {
   const [timer, setTimer] = useState({ hours: 0, minutes: 0, seconds: 0 });
-  let randomnumber = Math.floor(Math.random() * 100 + 1);
+  let randomnumber = Math.floor(Math.random() * 1000 + 1);
   const [pokemon, setPokemon] = useState<any>("");
   const [_pokemonData, setPokemonData] = useState<pokemonType>({
     data: undefined,
@@ -26,7 +28,6 @@ export default function Pokemonoftheday() {
   });
   const [pokemonNum, setPokemonNum] = useState<number>(randomnumber);
   // const [max, setmax] = useState<number>(1);
-
   const callRandom = async () => {
     //151
     const result = await axios.get(`${POKEMON_BASE_URL}/pokemon/${pokemonNum}`);
@@ -59,7 +60,6 @@ export default function Pokemonoftheday() {
     tmr.setDate(today.getDate() + 1);
     tmr.setHours(0, 0, 0, 0);
     let timeleft = tmr.getTime() - today.getTime();
-    // let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
     let hours = Math.floor(
       (timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
@@ -73,7 +73,6 @@ export default function Pokemonoftheday() {
 
   useEffect(() => {
     callRandom();
-    // console.log('pokemonData', pokemonData.data)
   }, [pokemonNum]);
 
   useEffect(() => {
@@ -98,10 +97,8 @@ export default function Pokemonoftheday() {
           />
         </div>
       </Link>
-
       <h1>POKEMON OF THE DAY</h1>
       <div>Today is {new Date().toString()}</div>
-      <h1>{pokemon}</h1>
       <div className="countDownSection flex flex-col items-center ">
         <div>The Pokemon will be automatically reset </div>
         in
@@ -127,10 +124,9 @@ export default function Pokemonoftheday() {
         type="button"
         className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
       >
-        Alternative
+        Surprise!
       </button>
-
-      {/* <poke</pok> */}
+      <Detail name={pokemon} /> {/* <poke</pok> */}
       <div className="w-[100%] m-[auto] max-w-[1500px] ">
         <div className="w-[100%] m-[auto] max-w-[1200px]">
           {/* This is card */}
@@ -204,7 +200,7 @@ export default function Pokemonoftheday() {
                 <div className="...">
                   <div>
                     <img
-                      className=" h-[400px] p-[40px] w-full hover:scale-110 transform transition duration-500"
+                      className="h-[400px] p-[40px] w-full hover:scale-110 transform transition duration-500"
                       src={pokemon.data.image}
                       alt=""
                     />
@@ -264,9 +260,6 @@ export default function Pokemonoftheday() {
               </div>
             )}
           </div>
-          <Link to={"/"}>
-            <b className="text-bold">BACK</b>
-          </Link>
         </div>
       </div>
     </div>
