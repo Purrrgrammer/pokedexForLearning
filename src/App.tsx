@@ -4,7 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "@/pages/home";
 import DetailPage from "@/pages/detail";
 import Pokemonoftheday from "./pages/pokemonoftheday";
-
+import ContactPage from "./pages/about/contact";
+import AboutPage from "./pages/about";
 function App() {
   const router = createBrowserRouter([
     {
@@ -18,6 +19,14 @@ function App() {
     {
       path: "pokemonoftheday",
       element: <Pokemonoftheday />,
+    },
+    {
+      path: "about",
+      element: <AboutPage />,
+    },
+    {
+      path: "contact",
+      element: <ContactPage />,
     },
   ]);
   return (

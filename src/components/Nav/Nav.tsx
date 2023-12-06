@@ -4,8 +4,8 @@ const logo =
 
 const navpath = [
   { name: "home", path: "/" },
-  { name: "about", path: "/" },
-  { name: "contact", path: "/" },
+  { name: "about", path: "/about" },
+  { name: "contact", path: "/contact" },
 ];
 const Nav = () => {
   return (

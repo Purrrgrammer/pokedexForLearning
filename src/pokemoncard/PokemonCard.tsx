@@ -5,7 +5,8 @@ interface PokemonCardProps {
   image: string;
   name: string;
   id: number;
-  types: Type[];
+  types?: Type[] | any;
+  link?: string | undefined;
 }
 //construct few data
 
@@ -16,16 +17,30 @@ interface PokemonCardProps {
 
 export function pokemonCard({ data }: PokemonCardProps) 
 */
-
-export function pokemonCard({ image, name, id, types }: PokemonCardProps) {
+export function pokemonCard({
+  image,
+  name,
+  id,
+  types,
+  link,
+}: PokemonCardProps) {
   return (
     <div className="rounded-[20px] overflow-hidden max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-w-[275px] h-full max-h-[350px] w-full m-[auto] hover:scale-110 transform transition duration-500">
-      <Link to={`/detail/${name}`}>
-        <img
-          className="rounded-t-lg max-h-[218px] h-full p-[40px] w-full"
-          src={image}
-        />
-      </Link>
+      {link === undefined ? (
+        <Link to={`/detail/${name}`}>
+          <img
+            className="rounded-t-lg max-h-[218px] h-full p-[40px] w-full object-contain"
+            src={image}
+          />
+        </Link>
+      ) : (
+        <a href={link} target="_blank">
+          <img
+            className="rounded-t-lg max-h-[218px] h-full p-[40px] w-full object-contain"
+            src={image}
+          />
+        </a>
+      )}
       <div className="pb-5">
         <div className="flex justify-between">
           <h5 className="capitalize mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -47,7 +62,7 @@ export function pokemonCard({ image, name, id, types }: PokemonCardProps) {
         </div>
         {/* text */}
         <div className="flex gap-1 justify-center mt-[16px] ">
-          {types.map((item) => {
+          {types?.map((item: any) => {
             return (
               <span
                 key={`type-${item.type.name}`}

@@ -1,40 +1,22 @@
-InfiniteScroll
-
 TODOS
 
-ERROR
-on incoming promise in pokemon of the day
-
-pokemon of the day ui
-countdown pokemon ui
-
-
-page migration
-
-nav bar 
-> includes ...
-drop down menu is not working
-add link to my git hub
-
-2.my github link
-
-3.info
-
-evolution features
-
-to ask 
-how to get max
-set axios response to data 
-some error
-
 CHECKED
-1.pokemon of the day
-ui for stat bars
-base_stat reducer 
+1.pokemon of the day X
+ui for stat bars X
+base_stat reducer  X
+pokemon of the day ui X
+countdown pokemon ui X
 
+
+
+
+InfiniteScroll
 responsesiveness
-poke detail
+page pagination 
+nav bar 
+add link to my git hub
+drop down menu is not working > mobile
 
-more details
-
-extreme ui update
+about page
+contact page
+evolution features

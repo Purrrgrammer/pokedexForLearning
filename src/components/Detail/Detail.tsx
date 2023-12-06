@@ -120,7 +120,7 @@ const Detail = ({ name }: propType) => {
               <div className="... order-1 md:order-2">
                 <div>
                   <img
-                    className=" h-[300px] sm:h-[400px] p-8 sm:p-[40px] w-full hover:scale-110 transform transition duration-500"
+                    className="object-contain h-[300px] sm:h-[400px] p-8 sm:p-[40px] w-full hover:scale-110 transform transition duration-500"
                     src={pokemon.data.image}
                     alt=""
                   />

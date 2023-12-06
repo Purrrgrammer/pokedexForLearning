@@ -37,6 +37,7 @@ const HomePage = () => {
                   name={item.name}
                   id={item.id}
                   types={item.types}
+                  link={undefined}
                 />
               </React.Fragment>
             );

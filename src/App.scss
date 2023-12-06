@@ -48,23 +48,75 @@ select:focus option:first-of-type {
 .detail-page {
   z-index: 10;
 }
-// .detail-page-base:before {
-//   content: "";
-//   display: block;
-//   margin: 0 auto;
-//   position: absolute;
-//   width: 100%;
-//   z-index: -1;
-//   height: 100%;
-//   background-color: white;
-//   left: 0;
-//   position: absolute;
-//   top: 0;
-//   width: 100%;
-//   opacity: 0.8;
-//   box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
-//   -moz-box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
-//   -webkit-box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
-//   box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
-//   z-index: -1;
-// }
+
+.typewriter {
+  position: relative;
+}
+
+.typewriter > p {
+  width: 100%;
+  font-family: monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-name: typing;
+  animation-duration: 3s;
+  animation-timing-function: steps(200, end);
+  animation-iteration-count: 1;
+  text-wrap: nowrap;
+  /* Center vertically and horizontally */
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  &:nth-child(2) {
+    visibility: hidden;
+    animation-delay: 2.8s;
+    animation-fill-mode: forwards;
+  }
+  &:nth-child(3) {
+    visibility: hidden;
+    animation-delay: 5.3s;
+    animation-fill-mode: forwards;
+  }
+  &:nth-child(4) {
+    visibility: hidden;
+    animation-delay: 7.5s;
+    animation-fill-mode: forwards;
+  }
+  &:nth-child(5) {
+    visibility: hidden;
+    animation-delay: 10.5s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+    visibility: visible;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
