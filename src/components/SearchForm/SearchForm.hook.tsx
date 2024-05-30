@@ -6,8 +6,10 @@ import { useForm } from "react-hook-form";
 import { usePokemonListStore } from "@/store/pokemonList";
 import { IPokemonDetailResponse } from "@/interface/pokemonDetail";
 import { generationList, sortList, typesList } from "@/util/optionList";
+// import { pokemonUser } from "@/services/internalService";
+// import { objectToArray } from "@/functions";
 
-const useSearchForm = () => {
+const useSearchForm = (pageNumber: number) => {
   const { register, watch } = useForm();
   const generation = watch("generation");
   const sort = watch("sort");
@@ -17,7 +19,7 @@ const useSearchForm = () => {
     usePokemonListStore();
 
   //Calling Data
-  useEffect(() => {}, []);
+
   const callData = async ({
     limit,
     offset,
@@ -30,7 +32,12 @@ const useSearchForm = () => {
       loading: true,
       error: null,
     });
-    const responseList = await pokemonListService.getPokemonList(limit, offset);
+    const responseList = await pokemonListService.getPokemonList(
+      (limit = 50),
+      (pageNumber - 1) * 50
+    );
+    // const responseScore = await pokemonUser.getVoteScore();
+    console.log(limit, offset);
     //pokeList is the array for handling incoming data
     const pokeList: IPokemonDetailResponse[] = [];
     // console.log('data', data)
@@ -39,6 +46,7 @@ const useSearchForm = () => {
       //list fetched
       //loop data
       const responseResults = responseList.data?.results || [];
+      // const mockVote = objectToArray(responseScore.data);
       for (const pokemon of responseResults) {
         const response = await pokemonDetailService.getPokemonDetail(
           pokemon.name
@@ -50,6 +58,8 @@ const useSearchForm = () => {
             image:
               pokeData.sprites.other.dream_world.front_default ||
               pokeData.sprites.other["official-artwork"].front_default,
+            // vote:
+            //   mockVote.find((el) => el.pokemon_id == pokeData.id)?.score || 0, //vote to match with id fron internal backend
           });
         }
       }
@@ -149,7 +159,7 @@ const useSearchForm = () => {
       };
       callData(data); //generationList[generation] = change depends on index
     }
-  }, [generation]);
+  }, [generation, pageNumber]);
 
   //this
   return {

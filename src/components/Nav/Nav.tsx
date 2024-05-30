@@ -1,3 +1,4 @@
+import { clearToken } from "@/token";
 import { Link } from "react-router-dom";
 const logo =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png";
@@ -8,6 +9,8 @@ const navpath = [
   { name: "home", path: "/" },
   { name: "about", path: "/about" },
   { name: "contact", path: "/contact" },
+  { name: "user", path: "/user" },
+  { name: "logout", path: "/" },
 ];
 const Nav = () => {
   return (
@@ -125,6 +128,11 @@ const Nav = () => {
                 <Link
                   to={el.path}
                   className="block py-2 pl-3 pr-4 text-white bg-blue-700 hover:text-blue-700 md:bg-transparent md:text-blue-400 md:p-0 md:dark:text-blue-500"
+                  onClick={() => {
+                    if (el.name === "logout") {
+                      clearToken();
+                    }
+                  }}
                 >
                   {el.name.charAt(0).toUpperCase() + el.name.slice(1)}
                 </Link>

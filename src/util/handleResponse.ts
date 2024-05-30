@@ -8,9 +8,11 @@ export interface IResponse {
     | AxiosError<AxiosResponse<AxiosResponse<any, any>>>
     | AxiosResponse<any, any>
     | undefined;
+  data?: any;
 }
 export const handleResponse = {
   success: (res: AxiosResponse) => {
+    // console.log("success res data ", res.data);
     return {
       status: res.status,
       data: res.data,

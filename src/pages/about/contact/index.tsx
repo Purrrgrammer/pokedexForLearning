@@ -34,6 +34,7 @@ const ContactPage = () => {
             id={el.id}
             types={undefined}
             link={el.link!}
+            loading={undefined}
           />
         ))}
       </div>

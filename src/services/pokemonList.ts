@@ -16,9 +16,7 @@ export const pokemonListService = {
   ): Promise<IGetPokemonListResponse> => {
     try {
       const response = await axios.get(
-        `${POKEMON_BASE_URL}/pokemon?limit=${limit || 151}&offset=${
-          offset || 0
-        }`
+        `${POKEMON_BASE_URL}/pokemon?limit=${limit || 50}&offset=${offset || 0}`
       );
       console.log("RESPONSE", response);
       return handleResponse.success(response);
